@@ -13,13 +13,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        view.backgroundColor = UIColor.blackColor()
+
+        let baseImage = UIImage(named: "btn_usersearch_44x44pt_highlight")!
+        let capInsets: UIEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5.0)
+        var rectInsets: UIEdgeInsets = UIEdgeInsetsZero
+        rectInsets = UIEdgeInsetsMake(0, -80, 0, -20)
+
+        let btn = UIButton(frame: CGRect(x: 126, y: 200, width: 180, height: 88))
+        btn.setTitle("hogehoghodddddddddddddddddddd", forState: UIControlState.Normal)
+        btn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        btn.titleLabel!.font = UIFont(name: "System", size: 18.0)
+
+        let resizeImage = baseImage.resizableImageWithCapInsets(capInsets, resizingMode: UIImageResizingMode.Tile).imageWithAlignmentRectInsets(rectInsets)
+        btn.setBackgroundImage(resizeImage, forState: UIControlState.Normal)
+
+
+        view.addSubview(btn)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
