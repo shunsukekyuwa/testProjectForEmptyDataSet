@@ -33,14 +33,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        if let contentCell = cell as? TableViewCell {
-            contentCell.setCell(viewModel[indexPath.row])
-            contentCell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            return contentCell
-        } else {
-            return UITableViewCell()
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
+        cell.setCell(viewModel[indexPath.row])
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        return cell
     }
 }
 
