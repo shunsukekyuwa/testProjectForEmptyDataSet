@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         tableView.registerNib(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundView = nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +38,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setCell(viewModel[indexPath.row])
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell
+    }
+
+    func tableView(tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 0))
+    }
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
     }
 }
 
