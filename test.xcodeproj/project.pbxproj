@@ -15,6 +15,7 @@
 		286E93491D361D6C00515211 /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93481D361D6C00515211 /* testTests.swift */; };
 		286E93541D361D6D00515211 /* testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93531D361D6D00515211 /* testUITests.swift */; };
 		286E93621D37511D00515211 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93611D37511D00515211 /* UIImage+extension.swift */; };
+		28E4C39B1D3A76CC008FFB99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E4C39A1D3A76CC008FFB99 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		286E93531D361D6D00515211 /* testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testUITests.swift; sourceTree = "<group>"; };
 		286E93551D361D6D00515211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286E93611D37511D00515211 /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		28E4C39A1D3A76CC008FFB99 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				286E933C1D361D6C00515211 /* LaunchScreen.storyboard */,
 				286E933F1D361D6C00515211 /* Info.plist */,
 				286E93611D37511D00515211 /* UIImage+extension.swift */,
+				28E4C39A1D3A76CC008FFB99 /* TableViewCell.xib */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				286E933E1D361D6C00515211 /* LaunchScreen.storyboard in Resources */,
+				28E4C39B1D3A76CC008FFB99 /* TableViewCell.xib in Resources */,
 				286E933B1D361D6C00515211 /* Assets.xcassets in Resources */,
 				286E93391D361D6C00515211 /* Main.storyboard in Resources */,
 			);
@@ -488,6 +492,7 @@
 				286E935A1D361D6D00515211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286E935B1D361D6D00515211 /* Build configuration list for PBXNativeTarget "testTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +501,7 @@
 				286E935D1D361D6D00515211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		286E935E1D361D6D00515211 /* Build configuration list for PBXNativeTarget "testUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +510,7 @@
 				286E93601D361D6D00515211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
