@@ -11,15 +11,19 @@ import UIKit
 class ViewController: UIViewController {
 
     let viewModel: [contentType] = [contentType.Facebook, contentType.iCloud]
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Plain)
         tableView.registerNib(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundView = nil
+        view.addSubview(tableView)
+        navigationItem.title = "トップ"
+        navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +59,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let viewController = EmptyViewController()
         viewController.type = viewModel[indexPath.row]
-        self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: false)
     }
 }
 
