@@ -51,6 +51,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let viewController = EmptyViewController()
+        viewController.type = viewModel[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 enum contentType {
