@@ -39,3 +39,16 @@ class ViewController: UIViewController {
     }
 }
 
+enum contentType {
+    case Facebook
+    case iCloud
+
+    var title: String {
+        switch self {
+        case .Facebook:
+            return "Facebook"
+        case .iCloud:
+            return "iCloud"
+        }
+    }
+}
