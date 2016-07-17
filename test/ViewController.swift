@@ -23,12 +23,21 @@ class ViewController: UIViewController {
         tableView.backgroundView = nil
         view.addSubview(tableView)
         navigationItem.title = "トップ"
-        navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+        let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 8.0),
+            NSForegroundColorAttributeName: UIColor.blackColor()
+        ]
     }
 }
 

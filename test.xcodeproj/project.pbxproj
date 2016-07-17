@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2862773E1D3B574200C8BB72 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862773D1D3B574200C8BB72 /* UIColor+extension.swift */; };
 		286E93341D361D6C00515211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93331D361D6C00515211 /* AppDelegate.swift */; };
 		286E93361D361D6C00515211 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93351D361D6C00515211 /* ViewController.swift */; };
 		286E93391D361D6C00515211 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286E93371D361D6C00515211 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2862773D1D3B574200C8BB72 /* UIColor+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		286E93301D361D6C00515211 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286E93331D361D6C00515211 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286E93351D361D6C00515211 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				28E4C39A1D3A76CC008FFB99 /* TableViewCell.xib */,
 				28E4C3A31D3A8CDE008FFB99 /* EmptyViewController.storyboard */,
 				28E4C3A71D3A8E20008FFB99 /* EmptyViewController.swift */,
+				2862773D1D3B574200C8BB72 /* UIColor+extension.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			files = (
 				286E93621D37511D00515211 /* UIImage+extension.swift in Sources */,
 				286E93361D361D6C00515211 /* ViewController.swift in Sources */,
+				2862773E1D3B574200C8BB72 /* UIColor+extension.swift in Sources */,
 				28E4C3A81D3A8E20008FFB99 /* EmptyViewController.swift in Sources */,
 				286E93341D361D6C00515211 /* AppDelegate.swift in Sources */,
 			);

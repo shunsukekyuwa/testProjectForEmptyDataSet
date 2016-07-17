@@ -22,9 +22,27 @@ class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDa
         
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
+        navigationItem.title = type.title
+    }
 
-
-        // Do any additional setup after loading the view.
+    override func viewWillAppear(animated: Bool) {
+        switch type {
+        case .Facebook:
+            (red: 59, green: 89, blue: 152, alpha: 1)
+            navigationController?.navigationBar.barTintColor = ColorUtil.rgba(59, green: 89, blue: 152)
+            navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+            navigationController?.navigationBar.titleTextAttributes = [
+                NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 6.0),
+                NSForegroundColorAttributeName: UIColor.whiteColor()
+            ]
+        case .iCloud:
+            navigationController?.navigationBar.backgroundColor = UIColor.whiteColor()
+            navigationController?.navigationBar.tintColor = ColorUtil.rgba(35, green: 133, blue: 255)
+            navigationController?.navigationBar.titleTextAttributes = [
+                NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 1.0),
+                NSForegroundColorAttributeName: UIColor.blackColor()
+            ]
+        }
     }
 
     override func didReceiveMemoryWarning() {
