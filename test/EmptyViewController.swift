@@ -43,11 +43,15 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
     }
 
     func imageForEmptyDataSet(scrollView: UIScrollView!) -> UIImage! {
-        let capInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        var rectInsets = UIEdgeInsetsZero
-        rectInsets = UIEdgeInsets(top: 100, left: 100, bottom: 50, right: 100)
-        let image = UIImage(named: "facebook_image_140×118")!
-        return image.resizableImageWithCapInsets(capInsets, resizingMode: UIImageResizingMode.Stretch).imageWithAlignmentRectInsets(rectInsets)
+        if contentType is FacebookModel {
+            let capInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            var rectInsets = UIEdgeInsetsZero
+            rectInsets = UIEdgeInsets(top: 100, left: 100, bottom: 50, right: 100)
+            let image = UIImage(named: "facebook_image_140×118")!
+            return image.resizableImageWithCapInsets(capInsets, resizingMode: UIImageResizingMode.Stretch).imageWithAlignmentRectInsets(rectInsets)
+        } else {
+            return nil
+        }
     }
 
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
@@ -65,20 +69,51 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
         )
     }
 
-//    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-//        return NSAttributedString(
-//            string: "Share photos and videos with just the people you choose, and let them add photos, videos, and comments.",
-//            attributes:  [
-//                NSFontAttributeName: UIFont.systemFontOfSize(22.0),
-//                NSForegroundColorAttributeName: ColorUtil.rgba(172, green: 175, blue: 189)
-////                NSParagraphStyleAttributeName: 2.0
-//            ]
-//
-//        )
-//    }
+    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        if contentType is FacebookModel { return nil }
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        paragraph.alignment = NSTextAlignment.Center
+        paragraph.lineSpacing = 2.0
+        return NSAttributedString(
+            string: "Share photos and videos with just the people you choose, and let them add photos, videos, and comments.",
+            attributes:  [
+                NSFontAttributeName: UIFont.systemFontOfSize(16.0),
+                NSForegroundColorAttributeName: ColorUtil.rgba(172, green: 175, blue: 189),
+                NSParagraphStyleAttributeName: paragraph
+            ]
+        )
+    }
+
+    func buttonBackgroundImageForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> UIImage! {
+        if contentType is FacebookModel { return nil }
+        let baseImage = (state == UIControlState.Highlighted) ? UIImage(named: "btn_usersearch_44x44pt_highlight")! : UIImage(named: "btn_usersearch_44x44pt")!
+        let capInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
+        var rectInsets = UIEdgeInsetsZero
+        let ratioViewBoundsWidthAndButton: CGFloat = 0.88
+        let messageSizeForEmptyDataSet: CGFloat = 157.5
+        let widthBetweenBackgroundAndLabel = (view.bounds.size.width * ratioViewBoundsWidthAndButton - messageSizeForEmptyDataSet)/2
+        let padding: CGFloat = 20
+        let width = widthBetweenBackgroundAndLabel - padding
+        rectInsets = UIEdgeInsets(top: 0, left: -width, bottom: 0, right: -width)
+
+        return baseImage.resizableImageWithCapInsets(capInsets, resizingMode: UIImageResizingMode.Stretch).imageWithAlignmentRectInsets(rectInsets)
+    }
+
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+        if contentType is FacebookModel { return nil }
+        return NSAttributedString(
+            string: "Create New Stream",
+            attributes: [NSFontAttributeName: UIFont.systemFontOfSize(18.0)]
+        )
+    }
 
     func spaceHeightForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
-        return 50.0
+        if contentType is FacebookModel {
+            return 50.0
+        } else {
+            return 0
+        }
     }
 
     func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
