@@ -14,14 +14,16 @@ protocol ContentType {
     var barTintColor: UIColor { get set }
     var tintColor: UIColor { get set }
     var titleTextAttributes: [String : AnyObject]? { get set }
+    var titleForEmptyDataSet: String { get set }
 }
 
-final class Facebook: ContentType {
+final class FacebookModel: ContentType {
     var title: String
     var backgroundColor: UIColor
     var barTintColor: UIColor
     var tintColor: UIColor
     var titleTextAttributes = [String : AnyObject]?()
+    var titleForEmptyDataSet: String
 
     init(){
         title = "Facebook"
@@ -32,16 +34,18 @@ final class Facebook: ContentType {
             NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 6.0),
             NSForegroundColorAttributeName: UIColor.whiteColor()
         ]
+        titleForEmptyDataSet = "No friends to show."
     }
 
 }
 
-final class ICloud: ContentType {
+final class ICloudModel: ContentType {
     var title: String
     var backgroundColor: UIColor
     var barTintColor: UIColor
     var tintColor: UIColor
     var titleTextAttributes = [String : AnyObject]?()
+    var titleForEmptyDataSet: String
 
     init(){
         title = "iCloud"
@@ -52,5 +56,6 @@ final class ICloud: ContentType {
             NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 1.0),
             NSForegroundColorAttributeName: UIColor.blackColor()
         ]
+        titleForEmptyDataSet = "iCloud Photo Sharing"
     }
 }

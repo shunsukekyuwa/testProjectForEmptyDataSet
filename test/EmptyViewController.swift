@@ -11,7 +11,7 @@ import DZNEmptyDataSet
 
 final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
-    var contentType: ContentType = Facebook()
+    var contentType: ContentType = FacebookModel()
     var tableView: UITableView!
         
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
         shadow.shadowOffset = CGSizeMake(0.0, 1.0)
 
         return NSAttributedString(
-            string: "No friends to show.",
+            string: contentType.titleForEmptyDataSet,
             attributes: [
                 NSFontAttributeName: UIFont.systemFontOfSize(22.0),
                 NSForegroundColorAttributeName: ColorUtil.rgba(172, green: 175, blue: 189),
@@ -65,6 +65,18 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
         )
     }
 
+//    func descriptionForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+//        return NSAttributedString(
+//            string: "Share photos and videos with just the people you choose, and let them add photos, videos, and comments.",
+//            attributes:  [
+//                NSFontAttributeName: UIFont.systemFontOfSize(22.0),
+//                NSForegroundColorAttributeName: ColorUtil.rgba(172, green: 175, blue: 189)
+////                NSParagraphStyleAttributeName: 2.0
+//            ]
+//
+//        )
+//    }
+
     func spaceHeightForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
         return 50.0
     }
@@ -72,5 +84,4 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
     func verticalOffsetForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
         return -tableView.bounds.origin.y
     }
-
 }

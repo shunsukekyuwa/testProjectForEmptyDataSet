@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let viewModel: [ContentType] = [Facebook(), ICloud()]
+    let viewModel: [ContentType] = [FacebookModel(), ICloudModel()]
     var tableView: UITableView!
     
     override func viewDidLoad() {
