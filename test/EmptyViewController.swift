@@ -13,6 +13,7 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
 
     var contentType: ContentType = FacebookModel()
     var tableView: UITableView!
+    private var titleSize: CGFloat = 0.0
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,13 +86,28 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
         )
     }
 
+    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
+        if contentType is FacebookModel { return nil }
+        let str = "Create New Stream"
+        let font = UIFont.systemFontOfSize(14.0, weight: 2.0)
+        titleSize = str.widthWithConstrainedHeight(44, font: font)
+
+        return NSAttributedString(
+            string: str,
+            attributes: [
+                NSFontAttributeName: font,
+                NSForegroundColorAttributeName: ColorUtil.rgba(172, green: 175, blue: 189)
+            ]
+        )
+    }
+
     func buttonBackgroundImageForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> UIImage! {
         if contentType is FacebookModel { return nil }
         let baseImage = (state == UIControlState.Highlighted) ? UIImage(named: "btn_highlight")! : UIImage(named: "btn")!
         let capInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         var rectInsets = UIEdgeInsetsZero
         let ratioViewBoundsWidthAndButton: CGFloat = 0.88
-        let messageSizeForEmptyDataSet: CGFloat = 140
+        let messageSizeForEmptyDataSet: CGFloat = titleSize
         let widthBetweenBackgroundAndLabel = (view.bounds.size.width * ratioViewBoundsWidthAndButton - messageSizeForEmptyDataSet)/2
         let padding: CGFloat = 20
         let width = widthBetweenBackgroundAndLabel - padding
@@ -100,16 +116,6 @@ final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNE
         return baseImage.resizableImageWithCapInsets(capInsets, resizingMode: UIImageResizingMode.Stretch).imageWithAlignmentRectInsets(rectInsets)
     }
 
-    func buttonTitleForEmptyDataSet(scrollView: UIScrollView!, forState state: UIControlState) -> NSAttributedString! {
-        if contentType is FacebookModel { return nil }
-        return NSAttributedString(
-            string: "Create New Stream",
-            attributes: [
-                NSFontAttributeName: UIFont.systemFontOfSize(14.0, weight: 2.0),
-                NSForegroundColorAttributeName: ColorUtil.rgba(172, green: 175, blue: 189)
-            ]
-        )
-    }
 
     func spaceHeightForEmptyDataSet(scrollView: UIScrollView!) -> CGFloat {
         if contentType is FacebookModel {
