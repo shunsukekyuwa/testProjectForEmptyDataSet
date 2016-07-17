@@ -9,44 +9,28 @@
 import UIKit
 import DZNEmptyDataSet
 
-class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+final class EmptyViewController: UIViewController, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
 
-    var type: contentType = contentType.Facebook
+    var contentType: ContentType = Facebook()
     var tableView: UITableView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
+        navigationItem.title = contentType.title
+
         tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Plain)
-        view.addSubview(tableView)
-        
         tableView.emptyDataSetSource = self
         tableView.emptyDataSetDelegate = self
-        navigationItem.title = type.title
+        tableView.backgroundColor = contentType.backgroundColor
 
-        switch type {
-        case .Facebook: tableView.backgroundColor = ColorUtil.rgba(236, green: 238, blue: 250)
-        case .iCloud: tableView.backgroundColor = UIColor.whiteColor()
-        }
+        view.addSubview(tableView)
     }
 
     override func viewWillAppear(animated: Bool) {
-        switch type {
-        case .Facebook:
-            navigationController?.navigationBar.barTintColor = ColorUtil.rgba(59, green: 89, blue: 152)
-            navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-            navigationController?.navigationBar.titleTextAttributes = [
-                NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 6.0),
-                NSForegroundColorAttributeName: UIColor.whiteColor()
-            ]
-        case .iCloud:
-            navigationController?.navigationBar.backgroundColor = UIColor.whiteColor()
-            navigationController?.navigationBar.tintColor = ColorUtil.rgba(35, green: 133, blue: 255)
-            navigationController?.navigationBar.titleTextAttributes = [
-                NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 1.0),
-                NSForegroundColorAttributeName: UIColor.blackColor()
-            ]
-        }
+        navigationController?.navigationBar.barTintColor = contentType.barTintColor
+        navigationController?.navigationBar.tintColor = contentType.tintColor
+        navigationController?.navigationBar.titleTextAttributes = contentType.titleTextAttributes
     }
 
     override func didReceiveMemoryWarning() {

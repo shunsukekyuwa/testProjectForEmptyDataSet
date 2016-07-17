@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let viewModel: [contentType] = [contentType.Facebook, contentType.iCloud]
+    let viewModel: [ContentType] = [Facebook(), ICloud()]
     var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -67,27 +67,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let viewController = EmptyViewController()
-        viewController.type = viewModel[indexPath.row]
+        viewController.contentType = viewModel[indexPath.row]
         self.navigationController?.pushViewController(viewController, animated: false)
     }
 }
 
-enum contentType {
-    case Facebook
-    case iCloud
-
-    var title: String {
-        switch self {
-        case .Facebook:
-            return "Facebook"
-        case .iCloud:
-            return "iCloud"
-        }
-    }
-}
-
 class TableViewCell: UITableViewCell {
-    func setCell(type: contentType){
+    func setCell(type: ContentType){
         textLabel?.text = type.title
     }
 }
