@@ -10,21 +10,34 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let viewModel: [contentType] = [contentType.Facebook, contentType.iCloud]
-    @IBOutlet weak var tableView: UITableView!
+    let viewModel: [ContentType] = [FacebookModel(), ICloudModel()]
+    var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        tableView = UITableView(frame: self.view.bounds, style: UITableViewStyle.Plain)
         tableView.registerNib(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundView = nil
+        view.addSubview(tableView)
+        navigationItem.title = "トップ"
+        let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName: UIFont.systemFontOfSize(16.0, weight: 8.0),
+            NSForegroundColorAttributeName: UIColor.blackColor()
+        ]
     }
 }
 
@@ -51,24 +64,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
-}
 
-enum contentType {
-    case Facebook
-    case iCloud
-
-    var title: String {
-        switch self {
-        case .Facebook:
-            return "Facebook"
-        case .iCloud:
-            return "iCloud"
-        }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let viewController = EmptyViewController()
+        viewController.contentType = viewModel[indexPath.row]
+        self.navigationController?.pushViewController(viewController, animated: false)
     }
 }
 
 class TableViewCell: UITableViewCell {
-    func setCell(type: contentType){
+    func setCell(type: ContentType){
         textLabel?.text = type.title
     }
 }

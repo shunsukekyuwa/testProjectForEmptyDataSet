@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2862773E1D3B574200C8BB72 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862773D1D3B574200C8BB72 /* UIColor+extension.swift */; };
+		286277401D3B70B700C8BB72 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2862773F1D3B70B700C8BB72 /* ContentType.swift */; };
 		286E93341D361D6C00515211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93331D361D6C00515211 /* AppDelegate.swift */; };
 		286E93361D361D6C00515211 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93351D361D6C00515211 /* ViewController.swift */; };
 		286E93391D361D6C00515211 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286E93371D361D6C00515211 /* Main.storyboard */; };
@@ -16,6 +18,10 @@
 		286E93541D361D6D00515211 /* testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93531D361D6D00515211 /* testUITests.swift */; };
 		286E93621D37511D00515211 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286E93611D37511D00515211 /* UIImage+extension.swift */; };
 		28E4C39B1D3A76CC008FFB99 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E4C39A1D3A76CC008FFB99 /* TableViewCell.xib */; };
+		28E4C3A01D3A8C58008FFB99 /* DZNEmptyDataSet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E4C39E1D3A8C3A008FFB99 /* DZNEmptyDataSet.framework */; };
+		28E4C3A11D3A8C58008FFB99 /* DZNEmptyDataSet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 28E4C39E1D3A8C3A008FFB99 /* DZNEmptyDataSet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		28E4C3A41D3A8CDE008FFB99 /* EmptyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E4C3A31D3A8CDE008FFB99 /* EmptyViewController.storyboard */; };
+		28E4C3A81D3A8E20008FFB99 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E4C3A71D3A8E20008FFB99 /* EmptyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +41,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		28E4C3A21D3A8C58008FFB99 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				28E4C3A11D3A8C58008FFB99 /* DZNEmptyDataSet.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2862773D1D3B574200C8BB72 /* UIColor+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		2862773F1D3B70B700C8BB72 /* ContentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		286E93301D361D6C00515211 /* test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		286E93331D361D6C00515211 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		286E93351D361D6C00515211 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +73,9 @@
 		286E93551D361D6D00515211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286E93611D37511D00515211 /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		28E4C39A1D3A76CC008FFB99 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		28E4C39E1D3A8C3A008FFB99 /* DZNEmptyDataSet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DZNEmptyDataSet.framework; path = Carthage/Build/iOS/DZNEmptyDataSet.framework; sourceTree = "<group>"; };
+		28E4C3A31D3A8CDE008FFB99 /* EmptyViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmptyViewController.storyboard; sourceTree = "<group>"; };
+		28E4C3A71D3A8E20008FFB99 /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28E4C3A01D3A8C58008FFB99 /* DZNEmptyDataSet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +107,7 @@
 		286E93271D361D6C00515211 = {
 			isa = PBXGroup;
 			children = (
+				28E4C39E1D3A8C3A008FFB99 /* DZNEmptyDataSet.framework */,
 				286E93321D361D6C00515211 /* test */,
 				286E93471D361D6C00515211 /* testTests */,
 				286E93521D361D6D00515211 /* testUITests */,
@@ -109,6 +136,10 @@
 				286E933F1D361D6C00515211 /* Info.plist */,
 				286E93611D37511D00515211 /* UIImage+extension.swift */,
 				28E4C39A1D3A76CC008FFB99 /* TableViewCell.xib */,
+				28E4C3A31D3A8CDE008FFB99 /* EmptyViewController.storyboard */,
+				28E4C3A71D3A8E20008FFB99 /* EmptyViewController.swift */,
+				2862773D1D3B574200C8BB72 /* UIColor+extension.swift */,
+				2862773F1D3B70B700C8BB72 /* ContentType.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -141,6 +172,7 @@
 				286E932C1D361D6C00515211 /* Sources */,
 				286E932D1D361D6C00515211 /* Frameworks */,
 				286E932E1D361D6C00515211 /* Resources */,
+				28E4C3A21D3A8C58008FFB99 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,6 +269,7 @@
 			files = (
 				286E933E1D361D6C00515211 /* LaunchScreen.storyboard in Resources */,
 				28E4C39B1D3A76CC008FFB99 /* TableViewCell.xib in Resources */,
+				28E4C3A41D3A8CDE008FFB99 /* EmptyViewController.storyboard in Resources */,
 				286E933B1D361D6C00515211 /* Assets.xcassets in Resources */,
 				286E93391D361D6C00515211 /* Main.storyboard in Resources */,
 			);
@@ -265,7 +298,10 @@
 			files = (
 				286E93621D37511D00515211 /* UIImage+extension.swift in Sources */,
 				286E93361D361D6C00515211 /* ViewController.swift in Sources */,
+				2862773E1D3B574200C8BB72 /* UIColor+extension.swift in Sources */,
+				28E4C3A81D3A8E20008FFB99 /* EmptyViewController.swift in Sources */,
 				286E93341D361D6C00515211 /* AppDelegate.swift in Sources */,
+				286277401D3B70B700C8BB72 /* ContentType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +445,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kyuwa.test;
@@ -420,6 +460,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kyuwa.test;
